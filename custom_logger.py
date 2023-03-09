@@ -12,6 +12,7 @@ _action_log_format = f"%(asctime)s - %(filename)s:%(lineno)d - %(message)s"
 
 ACTION_TOKEN = "ACTION::"
 
+
 def action_filter(record):
     # return record.levelno == logging.INFO
     return record.levelno == logging.INFO and record.getMessage().startswith(ACTION_TOKEN)
@@ -22,17 +23,20 @@ def get_file_handler():
     file_handler.setFormatter(logging.Formatter(_log_format))
     return file_handler
 
+
 def get_actions_file_handler():
     file_handler = logging.FileHandler("actions.log")
     file_handler.addFilter(action_filter)
     file_handler.setFormatter(logging.Formatter(_action_log_format))
     return file_handler
 
+
 def get_stream_handler():
     stream_handler = logging.StreamHandler()
     stream_handler.setLevel(logging.DEBUG)
     stream_handler.setFormatter(logging.Formatter(_log_format))
     return stream_handler
+
 
 @cache
 def get_logger(name):
@@ -42,6 +46,7 @@ def get_logger(name):
     logger.addHandler(get_actions_file_handler())
     logger.addHandler(get_stream_handler())
     return logger
+
 
 # logger = get_logger(__name__)
 
