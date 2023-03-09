@@ -3,8 +3,8 @@ Example from '8 Advanced Python Logging Features that You Shouldn't Miss'
 https://towardsdatascience.com/8-advanced-python-logging-features-that-you-shouldnt-miss-a68a5ef1b62d
 """
 
-import example_module
 import custom_logger
+import example_module
 
 logger = custom_logger.get_logger(__name__)
 # logger = custom_logger.logger
