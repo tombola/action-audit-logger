@@ -6,8 +6,8 @@ https://towardsdatascience.com/8-advanced-python-logging-features-that-you-shoul
 import example_module
 import custom_logger
 
-logger = custom_logger.get_logger(__name__)
-# logger = custom_logger.logger
+# logger = custom_logger.get_logger(__name__)
+logger = custom_logger.init_action_log(__name__)
 
 
 def main():
